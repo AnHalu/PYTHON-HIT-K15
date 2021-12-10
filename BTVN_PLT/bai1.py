@@ -3,6 +3,7 @@ import pandas as pd
 
 data = pd.read_csv('Mall_Customers_2.csv')
 data.fillna(data['Age'].min(), inplace = True)
+data = data.sort_values(by='Age')
 fig , ax = plt.subplots(ncols=2, nrows=2, figsize = (15,15))
 color = ['blue' if i == 'Male' else 'pink' for i in data['Genre']]
 age = data['Age']
@@ -16,10 +17,10 @@ ve scatter theo gia tri cua age (tuoi) , an (chi tieu )
 '''
 
 an = data['Annual Income (k$)']
-id = an.argmax()
+
 ax[0,1].plot(age,an)
 ax[0,1].set(title='Line' , xlabel='Age' , ylabel='Annual Income (k$)')
-ax[0,1].annotate('Max' ,xy =(age[id],an[id]) , xytext = (age[id]-10,an[id]+10) , arrowprops= dict(facecolor='green'))
+ax[0,1].annotate('Max' ,xy =(32 , 137) , xytext = (25,150) , arrowprops= dict(facecolor='green'))
 '''
 ham argamax() dua ra chi so ma thang data['Annual Income (k$)'] dat max 
 ve plot nhu binh thuong 
