@@ -4,7 +4,8 @@ from sklearn.impute import SimpleImputer
 
 data = pd.read_csv("categorical_data.csv")
 imp = SimpleImputer(missing_values=np.nan , strategy='mean')
-data.iloc[:,1:3] = imp.fit_transform(data.iloc[:,1:3])
+data.iloc[:, 1:3] = imp.fit_transform(data.iloc[:, 1:3].values)
+
 print("Sử dụng SimpleImputer :\n", data)
 """
 imp tìm các thuộc tính missing là nan , sử dụng mean để tính giá trị trung bình
